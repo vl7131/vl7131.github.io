@@ -1,6 +1,6 @@
 :root {
-    --cr-main-1: #2ac9de;
-    --cr-main-2: #f087f4;
+    --cr-main-1: #de9c2a;
+    --cr-main-2: #5679ca;
     --cr-1: color-mix(in srgb, var(--cr-main-1), var(--cr-main-2) 20%);
     --cr-2: color-mix(in srgb, var(--cr-main-1), var(--cr-main-2) 35%);
     --cr-3: color-mix(in srgb, var(--cr-main-1), var(--cr-main-2) 50%);
@@ -17,6 +17,7 @@
     height: 100%;
     pointer-events: none;
     filter: blur(140px);
+
 }
 
 .blob {
@@ -28,24 +29,99 @@
     left: 0;
 }
 
+@keyframes blobAcross {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(-50px);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes blobDown {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(30px);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes blobDiag1 {
+    0% {
+        transform: translateX(0);
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-50px);
+        transform: translateX(-20px);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateX(0);
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes blobDiag2 {
+    0% {
+        transform: translateX(0);
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(20px);
+        transform: translateX(50px);
+    }
+    100% {
+        transform: translateX(0);
+        transform: translateY(0);
+    }
+}
+
 .blob:nth-last-of-type(1) {
     background: var(--cr-main-1);
+    animation: blobDiag2 60s ease-in-out infinite;
+    animation-delay: 0.1s;
 }
 .blob:nth-last-of-type(2) {
     background: var(--cr-main-2);
+    animation: blobDiag1 60s ease-in-out infinite;
+    animation-delay: 0.5s;
 }
 .blob:nth-last-of-type(3) {
     background: var(--cr-1);
+    animation: blobDown 40s ease-in-out infinite;
+    animation-delay: 2s;
 }
 .blob:nth-last-of-type(4) {
     background: whitesmoke;
 }
 .blob:nth-last-of-type(5) {
     background: var(--cr-3);
+    animation: blobDown 80s ease-in-out infinite;
+    animation-delay: 7s;
 }
 .blob:nth-last-of-type(6) {
     background: var(--cr-4);
+    animation: blobAcross 70s ease-in-out infinite;
+    animation-delay: 4s;
 }
 .blob:nth-last-of-type(7) {
     background: var(--cr-2);
+    animation: blobAcross 50s ease-in-out infinite;
+    animation-delay: 5s;
 }
