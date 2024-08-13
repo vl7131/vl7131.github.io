@@ -1,6 +1,6 @@
 :root {
-    --cr-main-1: #de9c2a;
-    --cr-main-2: #5679ca;
+    --cr-main-1: #1900ff;
+    --cr-main-2: #ffa200;
     --cr-1: color-mix(in srgb, var(--cr-main-1), var(--cr-main-2) 20%);
     --cr-2: color-mix(in srgb, var(--cr-main-1), var(--cr-main-2) 35%);
     --cr-3: color-mix(in srgb, var(--cr-main-1), var(--cr-main-2) 50%);
@@ -25,103 +25,229 @@
     aspect-ratio: 1;
     border-radius: 50%;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: -1;
+    left: -1;
 }
 
-@keyframes blobAcross {
+body {
+    font-family: "Roboto Flex", sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    text-align: left;
+    text-decoration-color: #393939;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+h1 {
+    font-family: "Roboto Flex", sans-serif;
+    font-size: 45px;
+    font-weight: 500;
+    text-align: center;
+    text-decoration-color: #121212;
+    font-family: "Roboto Flex", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0,
+        "wdth" 100,
+        "GRAD" 0,
+        "XOPQ" 96,
+        "XTRA" 468,
+        "YOPQ" 79,
+        "YTAS" 750,
+        "YTDE" -203,
+        "YTFI" 738,
+        "YTLC" 514,
+        "YTUC" 712;
+}
+
+h6 {
+    font-family: "Roboto Flex", sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+    font-optical-sizing: auto;
+}
+
+.card a {
+    font-weight: bold; 
+    color: #8875d9; 
+    text-decoration: none; 
+}
+
+.card a:hover {
+    text-decoration: underline; 
+}
+
+@keyframes blobAcross1 {
     0% {
         transform: translateX(0);
-        opacity: 1;
     }
     50% {
-        transform: translateX(-50px);
-        opacity: 0.5;
+        transform: translateX(80vw);
     }
     100% {
         transform: translateX(0);
-        opacity: 1;
+    }
+}
+
+@keyframes blobAcross2 {
+    0% {
+        transform: translate(90vw, -10vh);
+    }
+    50% {
+        transform: translate(65vw, 20vh);
+    }
+    100% {
+        transform: translate(90vw, -10vh);
     }
 }
 
 @keyframes blobDown {
     0% {
         transform: translateY(0);
-        opacity: 1;
     }
     50% {
-        transform: translateY(30px);
-        opacity: 0.9;
+        transform: translateY(70vh);
     }
     100% {
         transform: translateY(0);
-        opacity: 1;
     }
 }
 
 @keyframes blobDiag1 {
     0% {
-        transform: translateX(0);
-        transform: translateY(0);
-        opacity: 1;
+        transform: translate(0, 0);
     }
     50% {
-        transform: translateY(-50px);
-        transform: translateX(-20px);
-        opacity: 0.8;
+        transform: translate(40vw, 60vh);
     }
     100% {
-        transform: translateX(0);
-        transform: translateY(0);
-        opacity: 1;
+        transform: translate(0, 0);
     }
 }
 
 @keyframes blobDiag2 {
     0% {
-        transform: translateX(0);
-        transform: translateY(0);
+        transform: translate(70vw, 40vh); 
+    }
+    25% {
+        transform: translate(40vw, 80vh); 
     }
     50% {
-        transform: translateY(20px);
-        transform: translateX(50px);
+        transform: translate(60vw, -40vh); 
+    }
+    75% {
+        transform: translate(40vw, 60vh); 
     }
     100% {
-        transform: translateX(0);
-        transform: translateY(0);
+        transform: translate(70vw, 40vh); 
+    }
+}
+
+@keyframes blobSquare {
+    0% {
+        transform: translate(100vw, 30vh); 
+    }
+    25% {
+        transform: translate(50vw, 50vh); 
+    }
+    50% {
+        transform: translate(40vw, 70vh); 
+    }
+    75% {
+        transform: translate(50vw, 50vh); 
+    }
+    100% {
+        transform: translate(100vw, 30vh); 
+    }
+}
+
+@media (max-width: 1300px) {
+    .card {
+        width: 80vw;
+        min-height: 80vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        backdrop-filter: blur(5px);
+        background-color: #ffffff;
+        border-radius: 26px;
+        text-align: left;
+        box-shadow: 0 35px 68px 0 #b2b2b26b;
+        padding: 0px 30px 20px 30px; 
+        box-sizing: border-box;
+        overflow-y: visible;
+    }
+}
+  
+@media (min-width: 1301px) {
+    .card {
+        width: 60vw;
+        min-height: 70vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        backdrop-filter: blur(5px);
+        background-color: #ffffff;
+        border-radius: 26px;
+        text-align: left;
+        box-shadow: 0 35px 68px 0 #b2b2b26b;
+        padding: 0px 30px 20px 30px; 
+        box-sizing: border-box; 
+        overflow-y: visible;
+    }
+}
+
+@media (max-width: 700px) {
+    .card {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 95vw;
+        margin-top: 15px; /* Add some margin from the top */
+        min-height: auto; /* Allow the height to adjust */
+        max-height: 95vh; /* Ensure it doesn't grow too tall */
+        overflow-y: auto; /* Scroll if necessary */
     }
 }
 
 .blob:nth-last-of-type(1) {
     background: var(--cr-main-1);
-    animation: blobDiag2 60s ease-in-out infinite;
-    animation-delay: 0.1s;
+    animation: blobSquare 75s ease-in-out infinite;
+    animation-delay: 0s;
 }
 .blob:nth-last-of-type(2) {
     background: var(--cr-main-2);
-    animation: blobDiag1 60s ease-in-out infinite;
-    animation-delay: 0.5s;
+    animation: blobDiag1 70s ease-in-out infinite;
+    animation-delay: 3s;
 }
 .blob:nth-last-of-type(3) {
     background: var(--cr-1);
-    animation: blobDown 40s ease-in-out infinite;
-    animation-delay: 2s;
+    animation: blobDown 95s ease-in-out infinite;
+    
 }
 .blob:nth-last-of-type(4) {
-    background: whitesmoke;
+    background: #941f1f;
+    animation: blobDiag2 100s ease-in-out infinite;
+    
 }
 .blob:nth-last-of-type(5) {
     background: var(--cr-3);
     animation: blobDown 80s ease-in-out infinite;
-    animation-delay: 7s;
+   
 }
 .blob:nth-last-of-type(6) {
     background: var(--cr-4);
-    animation: blobAcross 70s ease-in-out infinite;
-    animation-delay: 4s;
+    animation: blobAcross1 80s ease-in-out infinite;
+    
 }
 .blob:nth-last-of-type(7) {
     background: var(--cr-2);
-    animation: blobAcross 50s ease-in-out infinite;
-    animation-delay: 5s;
+    animation: blobAcross2 90s ease-in-out infinite;
+    
 }
